@@ -1,0 +1,5 @@
+<plugins>
+  <plugin id="com.ing.bakering" url="https://github.com/LolcatCodes/BakerING/releases/download/v1.0.7/BakerING-1.0.7.zip" version="1.0.7">
+    <idea-version since-build="243" until-build=""/>
+  </plugin>
+</plugins>
