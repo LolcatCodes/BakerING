@@ -1,0 +1,64 @@
+<plugins>
+  <plugin id="com.lolcatcodes.bakering" url="https://github.com/LolcatCodes/BakerING/releases/download/v1.0.7/BakerING-1.0.7.zip" version="1.0.7">
+    <idea-version since-build="243" until-build=""/>
+    <name>BakerING</name>
+    <description><![CDATA[
+        Editor support for Baker recipe files, making interaction wiring easier to understand at a glance.
+
+        <h3>Configuration</h3>
+
+        All features can be toggled independently under <b>Settings → Tools → BakerING</b>.
+
+        <h3>Features</h3>
+        <ul>
+            <li>
+                <b>Producer Highlighting</b> — Place the caret on any interaction reference to
+                automatically highlight every other interaction in the file that produces an
+                ingredient required by the focused interaction. Uses the standard
+                <i>Highlight Usages in File</i> mechanism (Ctrl+Shift+F7 / ⌘⇧F7).
+                Enabled by default.
+            </li>
+            <li>
+                <b>Documentation Popup Ingredients</b> — Appends Baker ingredient info (inputs,
+                outputs, and which interactions produce each input) to the Quick Documentation
+                popup shown when hovering over an interaction class inside <code>of(...)</code>
+                or inside a <code>Class[]</code> array literal. Ingredient types are shown as
+                clickable links that navigate to the source class or its implementation.
+                Enabled by default.
+            </li>
+            <li>
+                <b>Interaction Ingredients</b> — Compact inline hint next to each interaction
+                reference showing its required input ingredients and produced output ingredients,
+                e.g. <code>← orderId, customerId  → OrderPlaced</code>.
+                Hover the hint to see a tooltip with full ingredient names, types, and which other
+                interactions in the recipe produce each input.
+                Disabled by default.
+            </li>
+            <li>
+                <b>Interaction Ingredients (Expanded)</b> — Alternative to the compact view,
+                rendered at the end of the line with types alongside names,
+                e.g. <code>← orderId: String, customerId: UUID  → OrderPlaced: OrderOutcome</code>.
+                If both are enabled, Expanded takes precedence.
+                Disabled by default.
+            </li>
+            <li>
+                <b>Dependency Graph Popup</b> — A small dependency-analyzer icon appears next to
+                each interaction reference. Hover the icon to reveal a graph showing the
+                interaction's inputs (with their producer interactions or external sources) and
+                outputs in a three-column diagram. Producer boxes are clickable and navigate to
+                the implementation class. Click the icon itself to jump straight to the
+                interaction's implementation. Enabled by default.
+            </li>
+        </ul>
+    ]]></description>
+    <change-notes><![CDATA[
+        <h3>v1.0.7</h3>
+        <ul>
+            <li><b>Fix</b> — Clicking a node in the Recipe Graph (or a producer in the Dependency Graph Popup) no longer briefly freezes the IDE on large, multi-module projects — class resolution now happens off the UI thread.</li>
+            <li><b>Fix</b> — Hovering the Dependency Graph Popup icon no longer freezes the IDE while it resolves the interaction.</li>
+            <li><b>Fix</b> — Recipe Graph rendering errors are now logged to idea.log (instead of silently leaving the graph blank), with an on-screen message telling you to check the log and retry.</li>
+            <li><b>Dependency Graph Popup</b> — Clicking the icon now jumps straight to the interaction's implementation, instead of requiring the hover popup to open first.</li>
+        </ul>
+    ]]></change-notes>
+  </plugin>
+</plugins>
